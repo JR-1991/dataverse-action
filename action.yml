@@ -101,9 +101,3 @@ runs:
         echo "base_url=http://localhost:8080/" >> "$GITHUB_OUTPUT"
         
         echo "::endgroup::"
-    # - name: Retrieve API Token
-    #   run: ${{ github.action_path }}/scripts/get_api_token.sh
-    #   shell: bash
-    # - name: Create Dataverse
-    #   run: ${{ github.action_path }}/scripts/create_dataverse.sh
-    #   shell: bash
