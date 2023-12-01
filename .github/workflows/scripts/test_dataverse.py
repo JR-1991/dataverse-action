@@ -8,14 +8,14 @@ class TestNativeAPI:
         url = self.construct_url("api/info/version")
         response = requests.get(url)
 
-        assert response.status_code == 200
+        assert response.status_code == 200, response.text()
         assert response.json()["status"] == "OK"
 
     def test_metadatablocks(self):
         url = self.construct_url("api/metadatablocks")
         response = requests.get(url)
 
-        assert response.status_code == 200
+        assert response.status_code == 200, response.text()
         assert response.json()["status"] == "OK"
 
         expected = {
@@ -48,7 +48,7 @@ class TestNativeAPI:
             },
         )
 
-        assert response.status_code == 201
+        assert response.status_code == 201, response.text()
         assert response.json()["status"] == "OK"
 
     @staticmethod
