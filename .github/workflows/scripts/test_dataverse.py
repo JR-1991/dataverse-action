@@ -40,7 +40,7 @@ class TestNativeAPI:
                 "name": "TestAction",
                 "alias": "test_colleczion",
                 "dataverseContacts": [
-                    {"contactEmail": "burrito@burritoplace.yum"},
+                    {"contactEmail": "burrito@burritoplace.com"},
                 ],
                 "affiliation": "Burrito Research University",
                 "description": "We do all the (burrito) science.",
