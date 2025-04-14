@@ -200,7 +200,7 @@ class TestNativeAPI:
             f"/api/datasets/:persistentId/uploadurls/?persistentId={pid}&size=72428800"
         )
 
-        response = requests.put(
+        response = requests.get(
             url,
             headers=self.construct_header(),
             data="LocalStack",
