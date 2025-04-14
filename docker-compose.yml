@@ -138,7 +138,7 @@ services:
   localstack:
     container_name: 'localstack'
     hostname: 'localstack'
-    image: localstack/localstack:2.3.2
+    image: localstack/localstack:4.3.0
     restart: on-failure
     ports:
       - '127.0.0.1:4566:4566'
