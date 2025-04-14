@@ -180,6 +180,20 @@ class TestNativeAPI:
             },
         )
 
+        # Next, set the storage driver to LocalStack
+        url = self.construct_url(
+            "api/admin/dataverse/test_direct_upload_ticket/storageDriver"
+        )
+
+        response = requests.put(
+            url,
+            headers=self.construct_header(),
+            data="LocalStack",
+        )
+
+        assert response.status_code == 200, response.text
+        assert response.json()["status"] == "OK"
+
         # Next create a new dataset
         url = self.construct_url("api/dataverses/test_direct_upload_ticket/datasets")
         with open(".github/workflows/scripts/initial_dataset.json", "r") as f:
@@ -192,19 +206,14 @@ class TestNativeAPI:
         )
 
         response.raise_for_status()
-
         pid = response.json()["data"]["persistentId"]
 
-        # Next, set the storage driver to LocalStack
+        # Next, get the upload URLs
         url = self.construct_url(
             f"/api/datasets/:persistentId/uploadurls/?persistentId={pid}&size=72428800"
         )
 
-        response = requests.get(
-            url,
-            headers=self.construct_header(),
-            data="LocalStack",
-        )
+        response = requests.get(url, headers=self.construct_header())
 
         assert response.status_code == 200, response.text
         assert response.json()["status"] == "OK"
