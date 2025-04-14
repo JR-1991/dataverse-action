@@ -182,7 +182,7 @@ class TestNativeAPI:
 
         # Next create a new dataset
         url = self.construct_url("api/dataverses/test_direct_upload_ticket/datasets")
-        with open("initial_dataset.json", "r") as f:
+        with open(".github/workflows/scripts/initial_dataset.json", "r") as f:
             initial_dataset = json.load(f)
 
         response = requests.post(
