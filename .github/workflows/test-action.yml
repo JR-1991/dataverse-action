@@ -8,8 +8,8 @@ jobs:
     env:
       PORT: 8080
     steps:
-      - name: "Checkout"
-        uses: "actions/checkout@v4"
+      - name: 'Checkout'
+        uses: 'actions/checkout@v4'
       - name: Run Dataverse Action
         id: dataverse
         uses: ./
@@ -18,10 +18,11 @@ jobs:
           jvm_options: |
             dataverse.api.signature-secret=eikaizieb2Oghaex
             dataverse.pid.datacite.rest-api-url=https://api.datacite.org
+            dataverse.files.localstack1.min-part-size=7242880
       - name: Setup Python
         uses: actions/setup-python@v3
         with:
-          python-version: "3.11"
+          python-version: '3.11'
       - name: Install Python Dependencies
         run: |
           python -m pip install --upgrade pip
