@@ -75,6 +75,7 @@ runs:
           OPTS=""
           while IFS= read -r line; do
             OPTS="${OPTS:+$OPTS }-D$line"
+            echo "Adding $line to $OPTS"
           done < <(printf '%s' "${{ inputs.jvm_options }}")
           echo "ADDITIONAL_JVM_OPTS=$OPTS" | tee -a "${GITHUB_ENV}"
         fi
