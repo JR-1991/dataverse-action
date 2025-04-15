@@ -19,7 +19,7 @@ services:
       DATAVERSE_PID_FAKE_LABEL: Fake DOI Provider
       DATAVERSE_PID_FAKE_AUTHORITY: 10.5072
       DATAVERSE_PID_FAKE_SHOULDER: FK2/
-      JVM_ARGS: |
+      JVM_ARGS: >-
         -Ddataverse.files.storage-driver-id=file1
         -Ddataverse.files.file1.type=file
         -Ddataverse.files.file1.label=Filesystem
