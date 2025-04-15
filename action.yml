@@ -67,6 +67,9 @@ runs:
         echo "DATAVERSE_DB_USER=dataverse" | tee -a "${GITHUB_ENV}"
         echo "DATAVERSE_DB_PASSWORD=secret" | tee -a "${GITHUB_ENV}"
 
+        echo "CONFIG_DIR=${RUNNER_TEMP}/dv/conf" | tee -a "${GITHUB_ENV}"
+        mkdir -p "${RUNNER_TEMP}/dv/conf"
+
         # Process JVM options
         if [[ -n "${{ inputs.jvm_options }}" ]]; then
           OPTS=""
