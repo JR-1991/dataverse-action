@@ -19,6 +19,9 @@ services:
       DATAVERSE_PID_FAKE_LABEL: Fake DOI Provider
       DATAVERSE_PID_FAKE_AUTHORITY: 10.5072
       DATAVERSE_PID_FAKE_SHOULDER: FK2/
+      # Add the config directory for MicroProfile Config Source
+      CONFIG_ORDINAL: 500
+      CONFIG_DIR: /secrets
     ports:
       - '8080:8080'
     networks:
@@ -39,6 +42,8 @@ services:
     mem_limit: 2147483648 # 2 GiB
     mem_reservation: 1024m
     privileged: false
+    # Add JVM options to recognize config directory
+    command: ['--jvmargs', '-Dconfig.dir=/secrets']
 
   dv_initializer:
     container_name: 'dv_initializer'
