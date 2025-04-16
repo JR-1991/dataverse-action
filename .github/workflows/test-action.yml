@@ -16,8 +16,16 @@ jobs:
         with:
           postgresql_version: 15
           jvm_options: |
-            dataverse.api.signature-secret=eikaizieb2Oghaex
-            dataverse.pid.datacite.rest-api-url=https://api.datacite.org
+            dataverse.files.localstack1.type=s3
+            dataverse.files.localstack1.label=LocalStack
+            dataverse.files.localstack1.custom-endpoint-url=http://localstack:4566
+            dataverse.files.localstack1.custom-endpoint-region=us-east-2
+            dataverse.files.localstack1.bucket-name=mybucket
+            dataverse.files.localstack1.path-style-access=true
+            dataverse.files.localstack1.upload-redirect=true
+            dataverse.files.localstack1.download-redirect=true
+            dataverse.files.localstack1.access-key=default
+            dataverse.files.localstack1.secret-key=default
             dataverse.files.localstack1.min-part-size=7242880
       - name: Setup Python
         uses: actions/setup-python@v3
